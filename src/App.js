@@ -4,18 +4,18 @@ import React from 'react';
 import SearchBar from './Components/SearchBar';
 import NewsStories from './Components/NewsStories';
 import SideBar from './Components/SideBar';
+import Footer from './Components/Footer';
 
 function App() {
   
   return (
     
-      <div>
-        <h1>
-        My Reddit App
+      <div class='container'>
+        
         <SearchBar/>
-        </h1>
         <NewsStories/>
         <SideBar/>
+        <Footer />
       </div>
     
   );

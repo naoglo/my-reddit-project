@@ -1,23 +1,28 @@
-import React from 'react'
-import App from '../App';
+import React, {useState, useEffect} from 'react';
+import NewsStories from './NewsStories';
+
+
 
  const SearchBar =()=> {
     const styles = {
-        header: {
-            display: 'grid',
-            backgroundColor: 'purple',
-            width: '100%',
+       header:{
+        gridArea: 'header',
+        backgroundColor: 'teal',
         },
-      };
+    }
+    const [searchInput, setSearchInput] = useState('');
     return (
-        <header>
         <div className='header' style={styles.header}>
-        
-         <h1>Search </h1>
+         <input 
+         type='text'
+         className={styles.textbox}
+         placeholder='Search..'
+         value={searchInput}
+         />
+         <h1>Header </h1>
         
          </div>
             
-        </header>
     )
 }
 export default SearchBar;

@@ -1,3 +1,31 @@
 body {
   text-align: center;
 }
+.container{
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-columns: 2fr 5fr 3fr;
+  grid-template-areas: 
+    "header header header"
+    "main main nav"
+    "footer footer footer";
+  grid-gap: .75em;
+}
+.textbox {
+  border: 1px solid #f3f3f3;
+  height: 2rem;
+  box-sizing: border-box;
+  padding: 1px 10px;
+  outline: none;
+  transition: 0.2s ease-in-out;
+}
+
+.textbox:focus {
+  transition: 0.2s ease-in-out;
+  border: 1px solid blue;
+}
+
+
+
+
+

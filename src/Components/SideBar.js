@@ -3,11 +3,9 @@ import React from 'react';
 const SideBar = () => {
     const styles = {
         sideBar:{
-            display: 'grid',
-            
-            backgroundColor: 'limegreen',
-            width: '20%',
-        },
+            gridArea: 'nav',
+            backgroundColor: 'tomato',
+          }
     }
     return (
         <div className='sideBar' style={styles.sideBar}>

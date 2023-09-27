@@ -1,20 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import App from '../App';
+
+const fakeStories = ['Freddy Starr Ate My Hamster.', 'Underwear bandit caught, admits brief crime spree.', 
+'Flying saucer seen in Woodbridge.', 'Heatwave coming to Suffolk' ];
 
 const NewsStories = () => {
     const styles = {
-        main :{
-            display: 'grid',
-            backgroundColor: 'red',
-            width: '75%',
-            height: '200px',
-            color: 'green',
-        },
-    };
+        main: {
+            gridArea: 'main',
+            backgroundColor: 'lightblue',
+    },
+};
+const [story, setStory] = useState([]);
+
     return (
         <>
         <div className='main' style={styles.main}> 
-        <h1>News story placeholder</h1>
+        {fakeStories.map((fake) => <p>{fake}</p>)
+
+         }
+        
         </div>
         </>
     )
