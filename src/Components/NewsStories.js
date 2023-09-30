@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import App from '../App';
 import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux'
+import { selectAllArticles, fetchArticles } from '../ArticlesSlice'
+
 import { Button } from 'antd';
 import { Card } from 'antd';
 //import 'antd/dist/antd.css'
@@ -14,19 +17,22 @@ const NewsStories = () => {
         main: {
             gridArea: 'main',
             backgroundColor: 'lightblue',
-    },
-};
-    const [news, setNews] = useState([]);
+        },
+    };
 
-    useEffect(() =>{
-        const loadNews = async() => {
-            const response = await axios.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c18e89f93021422e8cb28ee5e157580f')
-            setNews(response.data.articles);
+    const dispatch = useDispatch()
+    const articles = useSelector(selectAllArticles)
+    const articlesStatus = useSelector((state) => state.articles.status)
+    const error = useSelector((state) => state.articles.error)
+  
+  
+    useEffect(() => {
+        if (articlesStatus === 'idle') {
+            dispatch(fetchArticles())
         }
-        loadNews();
-    }, []);
+    }, [dispatch, articlesStatus])
 
-    console.log('news', news);
+   
 
     return (
         <div>
@@ -34,7 +40,7 @@ const NewsStories = () => {
         {fakeStories.map((fake) => <p>{fake}</p>)
 
          } */}
-       {news && news.map((item, index) =>{
+       {articles && articles.map((item, index) =>{
         return (
             <Card
             key={index}
