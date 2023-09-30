@@ -9,9 +9,9 @@ const initialState = {
 
 export const fetchArticles = createAsyncThunk(
   "articles/fetchArticles",
-  async () => {
+  async ({ search, category }) => {
     const response = await axios.get(
-      "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c18e89f93021422e8cb28ee5e157580f"
+      `https://newsapi.org/v2/top-headlines?q=${search}&country=gb&category=${category}&apiKey=2026562cc60b4d8eb329c84ecb26b9b3`
     );
     return response.data.articles;
   }
@@ -28,7 +28,7 @@ const articlesSlice = createSlice({
       })
       .addCase(fetchArticles.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.articles = state.articles.concat(action.payload);
+        state.articles = action.payload;
       })
       .addCase(fetchArticles.rejected, (state, action) => {
         state.status = "failed";

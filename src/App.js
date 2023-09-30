@@ -7,16 +7,14 @@ import Footer from "./Components/Footer";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("business");
   return (
-    <>
-      <p>{search}</p>
-      <div class="container">
-        <SearchBar search={search} setSearch={setSearch} />
-        <NewsStories />
-        <SideBar />
-        <Footer />
-      </div>
-    </>
+    <div class="container">
+      <SearchBar search={search} setSearch={setSearch} />
+      <NewsStories search={search} category={category} />
+      <SideBar setCategory={setCategory} />
+      <Footer />
+    </div>
   );
 }
 

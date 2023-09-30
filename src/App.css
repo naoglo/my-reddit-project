@@ -4,11 +4,11 @@ body {
 .container{
   display: grid;
   grid-template-rows: 100px 5fr 100px;
-  grid-template-columns: 2fr 5fr 3fr;
+  grid-template-columns: 5fr 1fr;
   grid-template-areas: 
-    "header header header"
-    "main main nav"
-    "footer footer footer";
+    "header header"
+    "main nav"
+    "footer footer";
   grid-gap: .75em;
 }
 .textbox {
@@ -23,6 +23,10 @@ body {
 .textbox:focus {
   transition: 0.2s ease-in-out;
   border: 1px solid blue;
+}
+
+.sideBar li:hover {
+  background-color: orangered;
 }
 
 
